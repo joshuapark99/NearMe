@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>1005268200480-kp7gsc7alh36t25iq638brscpikk9cdu.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.1005268200480-kp7gsc7alh36t25iq638brscpikk9cdu</string>
+	<key>API_KEY</key>
+	<string>AIzaSyD3QzqrxhjdxjiFNKtBr7kSzW6uQ4-dmQs</string>
+	<key>GCM_SENDER_ID</key>
+	<string>1005268200480</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>Ray.NearMe</string>
+	<key>PROJECT_ID</key>
+	<string>nearme-8a99f</string>
+	<key>STORAGE_BUCKET</key>
+	<string>nearme-8a99f.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:1005268200480:ios:da1a2c71ac2f8917d4a045</string>
+	<key>DATABASE_URL</key>
+	<string>https://nearme-8a99f.firebaseio.com</string>
+</dict>
+</plist>
