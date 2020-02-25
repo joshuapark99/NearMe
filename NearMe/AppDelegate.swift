@@ -8,9 +8,11 @@
 
 import UIKit
 import Firebase
+import CoreLocation
+import MapKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate,CLLocationManagerDelegate {
 
 
 
