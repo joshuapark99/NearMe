@@ -207,17 +207,20 @@
         <scene sceneID="jI9-Z9-m50">
             <objects>
                 <viewController storyboardIdentifier="HomeVC" id="RRF-8X-HL2" customClass="Home_ViewController" customModule="NearMe" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="pVC-I8-EIj">
+                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="pVC-I8-EIj">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" mapType="standard" rotateEnabled="NO" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OWw-4m-jBw">
-                                <rect key="frame" x="0.0" y="142" width="414" height="612"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalCompressionResistancePriority="320" verticalCompressionResistancePriority="320" ambiguous="YES" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="320" insetsLayoutMarginsFromSafeArea="NO" mapType="standard" rotateEnabled="NO" showsUserLocation="YES" id="OWw-4m-jBw">
+                                <rect key="frame" x="20" y="202" width="374" height="527"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="OWw-4m-jBw" secondAttribute="height" multiplier="1:1" id="7C6-41-Y3s"/>
+                                </constraints>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="OWw-4m-jBw" firstAttribute="leading" secondItem="HPb-Q0-eOA" secondAttribute="leading" id="KdO-fO-Kw8"/>
                             <constraint firstItem="OWw-4m-jBw" firstAttribute="top" secondItem="HPb-Q0-eOA" secondAttribute="top" id="dr8-fb-bGS"/>
                             <constraint firstItem="HPb-Q0-eOA" firstAttribute="bottom" secondItem="OWw-4m-jBw" secondAttribute="bottom" id="fKt-Vx-DgU"/>
                             <constraint firstItem="HPb-Q0-eOA" firstAttribute="trailing" secondItem="OWw-4m-jBw" secondAttribute="trailing" id="nAm-kU-YbI"/>
@@ -225,6 +228,9 @@
                         <viewLayoutGuide key="safeArea" id="HPb-Q0-eOA"/>
                     </view>
                     <navigationItem key="navigationItem" id="ug2-1A-DJ2"/>
+                    <connections>
+                        <outlet property="mapView" destination="OWw-4m-jBw" id="qw3-WJ-5A9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1fM-0I-JxR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
