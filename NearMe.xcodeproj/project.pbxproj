@@ -21,6 +21,8 @@
 		B9F7ECCD23EA013F004ABB87 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9F7ECCB23EA013F004ABB87 /* Main.storyboard */; };
 		B9F7ECCF23EA0140004ABB87 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9F7ECCE23EA0140004ABB87 /* Assets.xcassets */; };
 		B9F7ECD223EA0140004ABB87 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9F7ECD023EA0140004ABB87 /* LaunchScreen.storyboard */; };
+		C693E2A8240884630017B74F /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C693E2A7240884630017B74F /* TableViewController.swift */; };
+		C693E2AA240887C80017B74F /* Marker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C693E2A9240887C80017B74F /* Marker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +43,8 @@
 		B9F7ECCE23EA0140004ABB87 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B9F7ECD123EA0140004ABB87 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B9F7ECD323EA0140004ABB87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C693E2A7240884630017B74F /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		C693E2A9240887C80017B74F /* Marker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Marker.swift; sourceTree = "<group>"; };
 		E86019F588A761BD3E87BAEA /* Pods_NearMe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NearMe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -81,6 +85,8 @@
 				B9E667CF23EA04C30067B5C0 /* Login_ViewController.swift */,
 				B9E667D123EA04CD0067B5C0 /* Home_ViewController.swift */,
 				B9E667D923EA2F620067B5C0 /* AfterLogIn.swift */,
+				C693E2A7240884630017B74F /* TableViewController.swift */,
+				C693E2A9240887C80017B74F /* Marker.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -268,9 +274,11 @@
 				B9F7ECCA23EA013F004ABB87 /* ViewController.swift in Sources */,
 				B9E667D223EA04CD0067B5C0 /* Home_ViewController.swift in Sources */,
 				B9E667D523EA189A0067B5C0 /* Utilities.swift in Sources */,
+				C693E2A8240884630017B74F /* TableViewController.swift in Sources */,
 				B9F7ECC623EA013F004ABB87 /* AppDelegate.swift in Sources */,
 				B9E667D023EA04C30067B5C0 /* Login_ViewController.swift in Sources */,
 				B9E667CE23EA04AA0067B5C0 /* SignUp_ViewController.swift in Sources */,
+				C693E2AA240887C80017B74F /* Marker.swift in Sources */,
 				B9E667DA23EA2F620067B5C0 /* AfterLogIn.swift in Sources */,
 				B9F7ECC823EA013F004ABB87 /* SceneDelegate.swift in Sources */,
 				B9E667DC23EA41230067B5C0 /* Constants.swift in Sources */,
