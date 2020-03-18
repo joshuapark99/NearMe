@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		73007BD02421E9E5008C1253 /* LocationSearchTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73007BCF2421E9E5008C1253 /* LocationSearchTable.swift */; };
 		8D047B3FF32DC47AF592322B /* Pods_NearMe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E86019F588A761BD3E87BAEA /* Pods_NearMe.framework */; };
 		B9E667CE23EA04AA0067B5C0 /* SignUp_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E667CD23EA04AA0067B5C0 /* SignUp_ViewController.swift */; };
 		B9E667D023EA04C30067B5C0 /* Login_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E667CF23EA04C30067B5C0 /* Login_ViewController.swift */; };
@@ -27,6 +28,7 @@
 
 /* Begin PBXFileReference section */
 		1DC00784C0F52E81F7D4E103 /* Pods-NearMe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NearMe.debug.xcconfig"; path = "Target Support Files/Pods-NearMe/Pods-NearMe.debug.xcconfig"; sourceTree = "<group>"; };
+		73007BCF2421E9E5008C1253 /* LocationSearchTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchTable.swift; sourceTree = "<group>"; };
 		91EB4C48A2412B9C1509FB85 /* Pods-NearMe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NearMe.release.xcconfig"; path = "Target Support Files/Pods-NearMe/Pods-NearMe.release.xcconfig"; sourceTree = "<group>"; };
 		B9E667CD23EA04AA0067B5C0 /* SignUp_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp_ViewController.swift; sourceTree = "<group>"; };
 		B9E667CF23EA04C30067B5C0 /* Login_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login_ViewController.swift; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 				B9E667D623EA18CA0067B5C0 /* Helpers */,
 				B9E667D323EA04D30067B5C0 /* View Controllers */,
 				B9F7ECC523EA013F004ABB87 /* AppDelegate.swift */,
+				73007BCF2421E9E5008C1253 /* LocationSearchTable.swift */,
 				B9F7ECC723EA013F004ABB87 /* SceneDelegate.swift */,
 				B9F7ECCB23EA013F004ABB87 /* Main.storyboard */,
 				B9F7ECCE23EA0140004ABB87 /* Assets.xcassets */,
@@ -274,6 +277,7 @@
 				B9F7ECCA23EA013F004ABB87 /* ViewController.swift in Sources */,
 				B9E667D223EA04CD0067B5C0 /* Home_ViewController.swift in Sources */,
 				B9E667D523EA189A0067B5C0 /* Utilities.swift in Sources */,
+				73007BD02421E9E5008C1253 /* LocationSearchTable.swift in Sources */,
 				C693E2A8240884630017B74F /* TableViewController.swift in Sources */,
 				B9F7ECC623EA013F004ABB87 /* AppDelegate.swift in Sources */,
 				B9E667D023EA04C30067B5C0 /* Login_ViewController.swift in Sources */,
