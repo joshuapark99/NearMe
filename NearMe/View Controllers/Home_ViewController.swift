@@ -10,15 +10,28 @@ import UIKit
 import CoreLocation
 import MapKit
 
-class Home_ViewController: UIViewController,MKMapViewDelegate, UISearchControllerDelegate, UISearchBarDelegate {
+protocol HandleMapSearch {
+    func dropPinZoomIn(placemark:MKPlacemark)
+}
+
+class Home_ViewController: UIViewController {
 
     @IBOutlet weak var mapView: MKMapView!
+    
+    var selectedPin:MKPlacemark? = nil
     
     var resultSearchController:UISearchController? = nil
     
    // var didFindLocation
 
     fileprivate let locationManager:CLLocationManager = CLLocationManager()
+    
+    @objc func getDirections() {
+        guard let selectedPin = selectedPin else {return }
+        let mapItem = MKMapItem(placemark: selectedPin)
+        let launchOptions = [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving]
+        mapItem.openInMaps(launchOptions: launchOptions)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,7 +55,7 @@ class Home_ViewController: UIViewController,MKMapViewDelegate, UISearchControlle
         
         let locationSearchTable = storyboard!.instantiateViewController(withIdentifier: "LocationSearchTable") as! LocationSearchTable
         resultSearchController = UISearchController(searchResultsController: locationSearchTable)
-        resultSearchController?.delegate = self
+        //resultSearchController?.delegate = self
         resultSearchController?.searchResultsUpdater = locationSearchTable
         resultSearchController?.hidesNavigationBarDuringPresentation = false
         resultSearchController?.obscuresBackgroundDuringPresentation = true
@@ -62,8 +75,11 @@ class Home_ViewController: UIViewController,MKMapViewDelegate, UISearchControlle
         
         locationSearchTable.mapView = mapView
         
+        locationSearchTable.handleMapSearchDelegate = self
+        
     }
     
+
     
 
 }
@@ -92,3 +108,40 @@ extension Home_ViewController : CLLocationManagerDelegate {
     }
 }
 
+extension Home_ViewController: HandleMapSearch {
+    func dropPinZoomIn(placemark:MKPlacemark){
+        selectedPin = placemark
+        mapView.removeAnnotations(mapView.annotations)
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = placemark.coordinate
+        annotation.title = placemark.name
+        if let city = placemark.locality,
+        let state = placemark.administrativeArea {
+            annotation.subtitle = "\(city) \(state)"
+        }
+        mapView.addAnnotation(annotation)
+        let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
+        let region = MKCoordinateRegion(center: placemark.coordinate, span: span)
+        mapView.setRegion(region, animated: true)
+    }
+}
+
+extension Home_ViewController: MKMapViewDelegate {
+    func mapView(_: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        guard !(annotation is MKUserLocation) else {return nil}
+        let reuseId = "pin"
+        var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseId) as? MKPinAnnotationView
+        if pinView == nil {
+            pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
+        }
+        pinView?.pinTintColor = UIColor.orange
+        pinView?.canShowCallout = true
+        let smallSquare = CGSize(width:30, height:30)
+        let button = UIButton(frame: CGRect(origin: CGPoint.zero, size: smallSquare))
+        button.setBackgroundImage(UIImage(named: "car"), for: .normal)
+        button.addTarget(self, action: #selector(getDirections), for: .touchUpInside)
+        pinView?.leftCalloutAccessoryView = button
+        
+        return pinView
+    }
+}
