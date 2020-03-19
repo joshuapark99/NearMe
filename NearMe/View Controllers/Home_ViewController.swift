@@ -10,7 +10,7 @@ import UIKit
 import CoreLocation
 import MapKit
 
-class Home_ViewController: UIViewController,MKMapViewDelegate {
+class Home_ViewController: UIViewController,MKMapViewDelegate, UISearchControllerDelegate, UISearchBarDelegate {
 
     @IBOutlet weak var mapView: MKMapView!
     
@@ -22,20 +22,6 @@ class Home_ViewController: UIViewController,MKMapViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let locationSearchTable = storyboard!.instantiateViewController(withIdentifier: "LocationSearchTable") as! LocationSearchTable
-        resultSearchController = UISearchController(searchResultsController: locationSearchTable)
-        resultSearchController?.searchResultsUpdater = locationSearchTable
-        
-        let searchBar = resultSearchController!.searchBar
-        searchBar.sizeToFit()
-        searchBar.placeholder = "Search for places"
-        navigationItem.titleView = resultSearchController?.searchBar
-        
-        resultSearchController?.hidesNavigationBarDuringPresentation = false
-        //resultSearchController?.dimsBackgroundDuringPresentation = true
-        resultSearchController?.obscuresBackgroundDuringPresentation = true
-        definesPresentationContext = true
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -51,6 +37,31 @@ class Home_ViewController: UIViewController,MKMapViewDelegate {
             let region = MKCoordinateRegion(center: location.coordinate, span: span)
             mapView.setRegion(region, animated: true)
         }
+        
+        
+        
+        let locationSearchTable = storyboard!.instantiateViewController(withIdentifier: "LocationSearchTable") as! LocationSearchTable
+        resultSearchController = UISearchController(searchResultsController: locationSearchTable)
+        resultSearchController?.delegate = self
+        resultSearchController?.searchResultsUpdater = locationSearchTable
+        resultSearchController?.hidesNavigationBarDuringPresentation = false
+        resultSearchController?.obscuresBackgroundDuringPresentation = true
+        
+        let searchBar = resultSearchController!.searchBar
+        //searchBar = UISearchBar(frame: CGRect(x:0, y:0, width: (view.bounds.width), height:50))
+        
+        //mapView.addSubview(searchBar)
+        //searchBar.delegate = locationSearchTable
+        searchBar.sizeToFit()
+        searchBar.placeholder = "Search for places"
+        navigationItem.titleView = resultSearchController?.searchBar
+        resultSearchController?.hidesNavigationBarDuringPresentation = false
+        //resultSearchController?.dimsBackgroundDuringPresentation = true
+        resultSearchController?.obscuresBackgroundDuringPresentation = true
+        definesPresentationContext = true
+        
+        locationSearchTable.mapView = mapView
+        
     }
     
     

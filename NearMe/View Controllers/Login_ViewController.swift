@@ -73,9 +73,9 @@ class Login_ViewController: UIViewController {
     
     func transitionToMaps(){
         
-        let homeViewController = self.storyboard?.instantiateViewController(identifier: Constants.Storyboard.homeViewController) as? Home_ViewController
+        let blah = self.storyboard?.instantiateViewController(identifier: "blah") as? UINavigationController
         
-        view.window?.rootViewController = homeViewController
+        view.window?.rootViewController = blah
         view.window?.makeKeyAndVisible()
     }
     

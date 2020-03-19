@@ -12,11 +12,11 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="NearMe" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="yXc-za-eJv">
-                                <rect key="frame" x="40" y="702" width="334" height="120"/>
+                                <rect key="frame" x="40" y="614" width="334" height="120"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LfF-AB-qdQ">
                                         <rect key="frame" x="0.0" y="0.0" width="334" height="50"/>
@@ -64,11 +64,11 @@
             <objects>
                 <viewController id="KZr-QB-o4t" customClass="SignUp_ViewController" customModule="NearMe" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vJB-0r-ABX">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="NWA-Gj-Xv1">
-                                <rect key="frame" x="40" y="128" width="334" height="340.5"/>
+                                <rect key="frame" x="40" y="40" width="334" height="340.5"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XS8-0k-h9B">
                                         <rect key="frame" x="0.0" y="0.0" width="334" height="42.5"/>
@@ -142,11 +142,11 @@
             <objects>
                 <viewController id="z83-d9-LwJ" customClass="Login_ViewController" customModule="NearMe" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1d3-Lq-VE1">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="KgW-bX-rE3">
-                                <rect key="frame" x="40" y="128" width="334" height="220.5"/>
+                                <rect key="frame" x="40" y="40" width="334" height="220.5"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="71Y-L7-Hku">
                                         <rect key="frame" x="0.0" y="0.0" width="334" height="42.5"/>
@@ -202,7 +202,7 @@
             </objects>
             <point key="canvasLocation" x="713.04347826086962" y="136.60714285714286"/>
         </scene>
-        <!--Home View Controller-->
+        <!--hello-->
         <scene sceneID="jI9-Z9-m50">
             <objects>
                 <viewController storyboardIdentifier="HomeVC" id="RRF-8X-HL2" customClass="Home_ViewController" customModule="NearMe" customModuleProvider="target" sceneMemberID="viewController">
@@ -221,7 +221,9 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="5YZ-4x-TvK"/>
                     </view>
-                    <navigationItem key="navigationItem" id="ug2-1A-DJ2"/>
+                    <navigationItem key="navigationItem" title="hello" id="ug2-1A-DJ2">
+                        <barButtonItem key="backBarButtonItem" title="hi" id="Xgp-lX-w9G"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="OWw-4m-jBw" id="qw3-WJ-5A9"/>
                     </connections>
@@ -297,7 +299,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="iYs-ic-1Ab" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="tDW-y1-Vwc"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="l9Y-Ul-Zp9">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="l9Y-Ul-Zp9">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -313,7 +315,7 @@
         <!--Navigation Controller-->
         <scene sceneID="dcP-qd-wmn">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="XMC-Hq-iC9" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="blah" automaticallyAdjustsScrollViewInsets="NO" id="XMC-Hq-iC9" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="JRh-zL-2Mf">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
