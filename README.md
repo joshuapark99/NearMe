@@ -1,5 +1,5 @@
 # NearMe
-CIS 454 Project
+CIS 454 Capstone Project
 
 
 # Directions for Git
