@@ -92,7 +92,6 @@ extension Home_ViewController : CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        print("hiiiiiiiiii")
         if let location = locations.first {
             print("hellooooo")
             let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta:0.05)
@@ -125,6 +124,7 @@ extension Home_ViewController: HandleMapSearch {
         mapView.setRegion(region, animated: true)
     }
 }
+
 
 extension Home_ViewController: MKMapViewDelegate {
     func mapView(_: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
