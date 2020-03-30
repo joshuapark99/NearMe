@@ -111,7 +111,7 @@ extension Home_ViewController : CLLocationManagerDelegate {
 extension Home_ViewController: HandleMapSearch {
     func dropPinZoomIn(placemark:MKPlacemark){
         selectedPin = placemark
-        mapView.removeAnnotations(mapView.annotations)
+        //mapView.removeAnnotations(mapView.annotations)
         let annotation = MKPointAnnotation()
         annotation.coordinate = placemark.coordinate
         annotation.title = placemark.name

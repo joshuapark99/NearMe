@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		73007BD02421E9E5008C1253 /* LocationSearchTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73007BCF2421E9E5008C1253 /* LocationSearchTable.swift */; };
+		734519502432A58300250909 /* NearMe.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7345194E2432A58300250909 /* NearMe.xcdatamodeld */; };
 		8D047B3FF32DC47AF592322B /* Pods_NearMe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E86019F588A761BD3E87BAEA /* Pods_NearMe.framework */; };
 		B9E667CE23EA04AA0067B5C0 /* SignUp_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E667CD23EA04AA0067B5C0 /* SignUp_ViewController.swift */; };
 		B9E667D023EA04C30067B5C0 /* Login_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E667CF23EA04C30067B5C0 /* Login_ViewController.swift */; };
@@ -29,6 +30,7 @@
 /* Begin PBXFileReference section */
 		1DC00784C0F52E81F7D4E103 /* Pods-NearMe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NearMe.debug.xcconfig"; path = "Target Support Files/Pods-NearMe/Pods-NearMe.debug.xcconfig"; sourceTree = "<group>"; };
 		73007BCF2421E9E5008C1253 /* LocationSearchTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchTable.swift; sourceTree = "<group>"; };
+		7345194F2432A58300250909 /* NearMe.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NearMe.xcdatamodel; sourceTree = "<group>"; };
 		91EB4C48A2412B9C1509FB85 /* Pods-NearMe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NearMe.release.xcconfig"; path = "Target Support Files/Pods-NearMe/Pods-NearMe.release.xcconfig"; sourceTree = "<group>"; };
 		B9E667CD23EA04AA0067B5C0 /* SignUp_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp_ViewController.swift; sourceTree = "<group>"; };
 		B9E667CF23EA04C30067B5C0 /* Login_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login_ViewController.swift; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 				B9F7ECD023EA0140004ABB87 /* LaunchScreen.storyboard */,
 				B9E667D723EA297E0067B5C0 /* GoogleService-Info.plist */,
 				B9F7ECD323EA0140004ABB87 /* Info.plist */,
+				7345194E2432A58300250909 /* NearMe.xcdatamodeld */,
 			);
 			path = NearMe;
 			sourceTree = "<group>";
@@ -283,6 +286,7 @@
 				B9E667D023EA04C30067B5C0 /* Login_ViewController.swift in Sources */,
 				B9E667CE23EA04AA0067B5C0 /* SignUp_ViewController.swift in Sources */,
 				C693E2AA240887C80017B74F /* Marker.swift in Sources */,
+				734519502432A58300250909 /* NearMe.xcdatamodeld in Sources */,
 				B9E667DA23EA2F620067B5C0 /* AfterLogIn.swift in Sources */,
 				B9F7ECC823EA013F004ABB87 /* SceneDelegate.swift in Sources */,
 				B9E667DC23EA41230067B5C0 /* Constants.swift in Sources */,
@@ -483,6 +487,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		7345194E2432A58300250909 /* NearMe.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				7345194F2432A58300250909 /* NearMe.xcdatamodel */,
+			);
+			currentVersion = 7345194F2432A58300250909 /* NearMe.xcdatamodel */;
+			path = NearMe.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = B9F7ECBA23EA013F004ABB87 /* Project object */;
 }
