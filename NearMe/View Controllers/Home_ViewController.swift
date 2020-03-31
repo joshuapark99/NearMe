@@ -45,15 +45,23 @@ class Home_ViewController: UIViewController {
                 let results = try context.fetch(fetchRequest)
                 
                 for result in results {
-                    if result.latitude == selectedPin.coordinate.latitude && result.longitude == selectedPin.coordinate.longitude {
+                    if (result.latitude == selectedPin.coordinate.latitude && result.longitude == selectedPin.coordinate.longitude) {
                         context.delete(result)
+                        do {
+                            try context.save()
+                            print("Saved")
+                            toDeleteMapView?.removeAnnotation(toDeleteAnnotation!)
+                        } catch {
+                            print("Saving Error")
+                        }
                     }
                 }
             } catch {
                 print("Couldnt not retrieve")
             }
         }
-        toDeleteMapView?.removeAnnotation(toDeleteAnnotation!)
+        print("deleted annotation")
+ 
         
     }
     
@@ -65,13 +73,15 @@ class Home_ViewController: UIViewController {
             let placemark = MKPlacemark(coordinate: newCoordinate)
             let annotation = MKPointAnnotation()
             annotation.coordinate = placemark.coordinate
-            //print(annotation.coordinate)
             annotation.title = placemark.name
             if let city = placemark.locality,
             let state = placemark.administrativeArea {
                 annotation.subtitle = "\(city) \(state)"
             }
             mapView.addAnnotation(annotation)
+            let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
+            let region = MKCoordinateRegion(center: placemark.coordinate, span: span)
+            mapView.setRegion(region, animated: true)
         }
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
@@ -185,8 +195,8 @@ extension Home_ViewController: MKMapViewDelegate {
         pinView?.leftCalloutAccessoryView = button
         
         let button1 = UIButton(frame: CGRect(origin: CGPoint.zero, size: smallSquare))
-        button.setBackgroundImage(UIImage(named: "car"), for: .normal)
-        button.addTarget(self, action: #selector(deleteFromData), for: .touchUpInside)
+        button1.setBackgroundImage(UIImage(named: "car"), for: .normal)
+        button1.addTarget(self, action: #selector(deleteFromData), for: .touchUpInside)
         pinView?.rightCalloutAccessoryView = button1
         
         return pinView
