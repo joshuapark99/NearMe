@@ -9,6 +9,7 @@
 import UIKit
 import CoreLocation
 import MapKit
+import CoreData
 
 protocol HandleMapSearch {
     func dropPinZoomIn(placemark:MKPlacemark)
@@ -19,7 +20,8 @@ class Home_ViewController: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
     
     var selectedPin:MKPlacemark? = nil
-    
+    var toDeleteAnnotation:MKAnnotation? = nil
+    var toDeleteMapView: MKMapView? = nil
     var resultSearchController:UISearchController? = nil
     
    // var didFindLocation
@@ -33,8 +35,44 @@ class Home_ViewController: UIViewController {
         mapItem.openInMaps(launchOptions: launchOptions)
     }
     
+    @objc func deleteFromData() {
+        guard let selectedPin = selectedPin else {return }
+        if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
+            let context = appDelegate.persistentContainer.viewContext
+            let fetchRequest = NSFetchRequest<Places>(entityName: "Places")
+            
+            do {
+                let results = try context.fetch(fetchRequest)
+                
+                for result in results {
+                    if result.latitude == selectedPin.coordinate.latitude && result.longitude == selectedPin.coordinate.longitude {
+                        context.delete(result)
+                    }
+                }
+            } catch {
+                print("Couldnt not retrieve")
+            }
+        }
+        toDeleteMapView?.removeAnnotation(toDeleteAnnotation!)
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        let places = self.retrieveValues()
+        for place in places {
+            let newCoordinate = CLLocationCoordinate2D(latitude: place.0, longitude: place.1)
+            let placemark = MKPlacemark(coordinate: newCoordinate)
+            let annotation = MKPointAnnotation()
+            annotation.coordinate = placemark.coordinate
+            //print(annotation.coordinate)
+            annotation.title = placemark.name
+            if let city = placemark.locality,
+            let state = placemark.administrativeArea {
+                annotation.subtitle = "\(city) \(state)"
+            }
+            mapView.addAnnotation(annotation)
+        }
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -113,11 +151,13 @@ extension Home_ViewController: HandleMapSearch {
         //mapView.removeAnnotations(mapView.annotations)
         let annotation = MKPointAnnotation()
         annotation.coordinate = placemark.coordinate
+        //print(annotation.coordinate)
         annotation.title = placemark.name
         if let city = placemark.locality,
         let state = placemark.administrativeArea {
             annotation.subtitle = "\(city) \(state)"
         }
+        self.save(x:annotation.coordinate.latitude, y: annotation.coordinate.longitude)
         mapView.addAnnotation(annotation)
         let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
         let region = MKCoordinateRegion(center: placemark.coordinate, span: span)
@@ -134,6 +174,8 @@ extension Home_ViewController: MKMapViewDelegate {
         if pinView == nil {
             pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
         }
+        toDeleteAnnotation = annotation
+        toDeleteMapView = mapView
         pinView?.pinTintColor = UIColor.orange
         pinView?.canShowCallout = true
         let smallSquare = CGSize(width:30, height:30)
@@ -142,6 +184,55 @@ extension Home_ViewController: MKMapViewDelegate {
         button.addTarget(self, action: #selector(getDirections), for: .touchUpInside)
         pinView?.leftCalloutAccessoryView = button
         
+        let button1 = UIButton(frame: CGRect(origin: CGPoint.zero, size: smallSquare))
+        button.setBackgroundImage(UIImage(named: "car"), for: .normal)
+        button.addTarget(self, action: #selector(deleteFromData), for: .touchUpInside)
+        pinView?.rightCalloutAccessoryView = button1
+        
         return pinView
+    }
+}
+
+extension Home_ViewController {
+    func save(x: Double, y: Double) {
+        if let appDelegate = UIApplication.shared.delegate as? AppDelegate{
+            let context = appDelegate.persistentContainer.viewContext
+            
+            guard let entityDescription = NSEntityDescription.entity(forEntityName: "Places", in: context) else {return}
+            
+            let newValue = NSManagedObject(entity: entityDescription, insertInto: context)
+            
+            //newValue.setValue(value, forKey: "placeName")
+            newValue.setValue(x, forKey: "latitude")
+            newValue.setValue(y, forKey: "longitude")
+            
+            do {
+                try context.save()
+                print("Saved")
+            } catch {
+                print("Saving Error")
+            }
+        }
+    }
+    
+    func retrieveValues() -> [(Double,Double)] {
+        if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
+            let context = appDelegate.persistentContainer.viewContext
+            let fetchRequest = NSFetchRequest<Places>(entityName: "Places")
+            var returnValues = [(Double,Double)]()
+            do {
+                let results = try context.fetch(fetchRequest)
+                
+                for result in results {
+                    let latitude = result.latitude
+                    let longitude = result.longitude
+                    returnValues.append((latitude, longitude))
+                }
+            } catch {
+                print("Couldnt not retrieve")
+            }
+            return returnValues
+        }
+        return []
     }
 }
