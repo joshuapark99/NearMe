@@ -1,9 +1,9 @@
 //
 //  Utilities.swift
-//  customauth
+//  NearMe
 //
-//  Created by Christopher Ching on 2019-05-09.
-//  Copyright © 2019 Christopher Ching. All rights reserved.
+//  Created by Near Me on 2/4/20.
+//  Copyright © 2020 NearMe. All rights reserved.
 //
 
 import Foundation
@@ -13,17 +13,12 @@ class Utilities {
     
     static func styleTextField(_ textfield:UITextField) {
         
-        // Create the bottom line
         let bottomLine = CALayer()
         
         bottomLine.frame = CGRect(x: 0, y: textfield.frame.height - 2, width: textfield.frame.width, height: 2)
         
-        bottomLine.backgroundColor = UIColor.init(red: 48/255, green: 173/255, blue: 99/255, alpha: 1).cgColor
-        
-        // Remove border on text field
-        textfield.borderStyle = .none
-        
-        // Add the line to the text field
+        bottomLine.backgroundColor = UIColor.init(red: 42/255, green: 100/255, blue: 92/255, alpha: 1).cgColor
+
         textfield.layer.addSublayer(bottomLine)
         
     }
@@ -31,7 +26,7 @@ class Utilities {
     static func styleFilledButton(_ button:UIButton) {
         
         // Filled rounded corner style
-        button.backgroundColor = UIColor.init(red: 48/255, green: 173/255, blue: 99/255, alpha: 1)
+        button.backgroundColor = UIColor.init(red: 42/255, green: 100/255, blue: 92/255, alpha: 1)
         button.layer.cornerRadius = 25.0
         button.tintColor = UIColor.white
     }

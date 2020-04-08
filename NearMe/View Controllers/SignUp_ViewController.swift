@@ -2,7 +2,7 @@
 //  SignUp_ViewController.swift
 //  NearMe
 //
-//  Created by Raymond Zhu on 2/4/20.
+//  Created by Near Me on 2/4/20.
 //  Copyright © 2020 NearMe. All rights reserved.
 //
 
@@ -122,9 +122,11 @@ class SignUp_ViewController: UIViewController {
     
     func transitionToMaps(){
         
-        let homeViewController = self.storyboard?.instantiateViewController(identifier: Constants.Storyboard.homeViewController) as? Home_ViewController
+        //let homeViewController = self.storyboard?.instantiateViewController(identifier: Constants.Storyboard.homeViewController) as? Home_ViewController
         
-        view.window?.rootViewController = homeViewController
+        let main = self.storyboard?.instantiateViewController(identifier: "main") as? ViewController
+        
+        view.window?.rootViewController = main
         view.window?.makeKeyAndVisible()
     }
     
